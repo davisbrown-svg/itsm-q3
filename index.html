@@ -4,6 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Winning ITSM in Q3 — Flynn's Patch</title>
+  <script>
+    (function() {
+      const PASS = 'MAEFY27Flynn';
+      const KEY  = 'itsm_auth';
+      if (sessionStorage.getItem(KEY) !== '1') {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.style.display = 'none';
+          var overlay = document.createElement('div');
+          overlay.id = 'pw-overlay';
+          overlay.style.cssText = 'position:fixed;inset:0;background:linear-gradient(135deg,#032D60 0%,#0176D3 100%);display:flex;align-items:center;justify-content:center;z-index:99999;';
+          overlay.innerHTML = `
+            <div style="background:#fff;border-radius:12px;padding:40px 36px;width:100%;max-width:380px;box-shadow:0 8px 32px rgba(0,0,0,.25);text-align:center;">
+              <div style="font-size:28px;margin-bottom:8px;">☁️</div>
+              <h2 style="font-family:-apple-system,sans-serif;font-size:20px;font-weight:700;color:#032D60;margin-bottom:4px;">Winning ITSM in Q3</h2>
+              <p style="font-family:-apple-system,sans-serif;font-size:13px;color:#706E6B;margin-bottom:24px;">Flynn's Patch — AMER Enterprise</p>
+              <input id="pw-input" type="password" placeholder="Enter password" style="width:100%;padding:11px 14px;border:1px solid #E5E5E5;border-radius:6px;font-size:14px;font-family:-apple-system,sans-serif;outline:none;box-sizing:border-box;margin-bottom:12px;" />
+              <div id="pw-error" style="color:#C23934;font-size:12px;font-family:-apple-system,sans-serif;margin-bottom:10px;min-height:16px;"></div>
+              <button id="pw-btn" style="width:100%;background:#0176D3;color:#fff;border:none;border-radius:6px;padding:12px;font-size:14px;font-weight:700;font-family:-apple-system,sans-serif;cursor:pointer;">Enter</button>
+            </div>`;
+          document.body.appendChild(overlay);
+          document.body.style.display = '';
+
+          function attempt() {
+            if (document.getElementById('pw-input').value === PASS) {
+              sessionStorage.setItem(KEY, '1');
+              document.getElementById('pw-overlay').remove();
+            } else {
+              document.getElementById('pw-error').textContent = 'Incorrect password. Try again.';
+              document.getElementById('pw-input').value = '';
+              document.getElementById('pw-input').focus();
+            }
+          }
+          document.getElementById('pw-btn').addEventListener('click', attempt);
+          document.getElementById('pw-input').addEventListener('keydown', function(e) { if (e.key === 'Enter') attempt(); });
+          document.getElementById('pw-input').focus();
+        });
+      }
+    })();
+  </script>
   <style>
     /* ── Reset & Base ─────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
