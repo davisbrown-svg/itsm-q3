@@ -602,6 +602,7 @@
   <button class="tab-btn" role="tab" data-tab="competitive">⚔️ Competitive Info</button>
   <button class="tab-btn" role="tab" data-tab="playbook">📋 ITSM Playbook</button>
   <button class="tab-btn" role="tab" data-tab="cta">🚀 Take Action</button>
+  <button class="tab-btn" role="tab" data-tab="pipegen">📈 Pipegen Tracker</button>
   <button class="tab-btn" role="tab" data-tab="alignment">👥 FY27 ITSM Specialist Alignment</button>
 </nav>
 
@@ -1155,6 +1156,81 @@
 
 </section>
 
+<!-- ═══════════════ PIPEGEN TRACKER ═══════════════ -->
+<section id="pipegen" class="tab-panel" role="tabpanel">
+
+  <div class="section-title">Pipegen Tracker</div>
+  <p class="section-sub">Q3 FY27 pipeline generated across Flynn's patch — $0 to $15M goal.</p>
+
+  <div style="background:var(--white);border-radius:12px;box-shadow:var(--shadow-md);padding:36px 32px 32px;margin-bottom:24px;">
+
+    <!-- Goal + current amount -->
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:28px;">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--gray-600);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Pipeline Generated</div>
+        <div id="pipegen-amount" style="font-size:48px;font-weight:800;color:var(--navy);line-height:1;letter-spacing:-1px;">$0</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:13px;font-weight:600;color:var(--gray-600);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Q3 Goal</div>
+        <div style="font-size:28px;font-weight:700;color:var(--gray-400);">$15M</div>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div style="position:relative;margin-bottom:12px;">
+      <div style="background:var(--gray-200);border-radius:50px;height:28px;overflow:hidden;">
+        <div id="pipegen-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--navy) 0%,var(--blue) 60%,#1DB8FF 100%);border-radius:50px;transition:width 1.4s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;justify-content:flex-end;padding-right:12px;min-width:0;box-sizing:border-box;">
+          <span id="pipegen-pct" style="font-size:12px;font-weight:700;color:var(--white);white-space:nowrap;opacity:0;transition:opacity .3s .8s;">0%</span>
+        </div>
+      </div>
+      <!-- Milestone ticks -->
+      <div style="display:flex;justify-content:space-between;margin-top:8px;padding:0 2px;">
+        <span style="font-size:11px;color:var(--gray-400);">$0</span>
+        <span style="font-size:11px;color:var(--gray-400);">$3.75M</span>
+        <span style="font-size:11px;color:var(--gray-400);">$7.5M</span>
+        <span style="font-size:11px;color:var(--gray-400);">$11.25M</span>
+        <span style="font-size:11px;color:var(--gray-400);">$15M</span>
+      </div>
+    </div>
+
+    <!-- Milestone markers on bar -->
+    <div style="position:relative;height:8px;margin-bottom:20px;">
+      <div style="position:absolute;left:25%;top:0;width:2px;height:8px;background:var(--gray-200);border-radius:1px;"></div>
+      <div style="position:absolute;left:50%;top:0;width:2px;height:8px;background:var(--gray-200);border-radius:1px;"></div>
+      <div style="position:absolute;left:75%;top:0;width:2px;height:8px;background:var(--gray-200);border-radius:1px;"></div>
+    </div>
+
+    <!-- Coming soon note -->
+    <div style="background:#EAF1FB;border:1px dashed #A8C4E5;border-radius:8px;padding:20px 24px;text-align:center;">
+      <div style="font-size:22px;margin-bottom:8px;">📊</div>
+      <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px;">Pipeline Report Coming Soon</div>
+      <div style="font-size:13px;color:var(--gray-600);">Drop the pipeline report in here to populate the tracker with live data.</div>
+    </div>
+
+  </div>
+
+  <!-- Milestone cards -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;">
+    <div style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:18px 16px;border-top:3px solid var(--gray-200);">
+      <div style="font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">25% Milestone</div>
+      <div style="font-size:22px;font-weight:800;color:var(--gray-400);">$3.75M</div>
+    </div>
+    <div style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:18px 16px;border-top:3px solid var(--gray-200);">
+      <div style="font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">50% Milestone</div>
+      <div style="font-size:22px;font-weight:800;color:var(--gray-400);">$7.5M</div>
+    </div>
+    <div style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:18px 16px;border-top:3px solid var(--gray-200);">
+      <div style="font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">75% Milestone</div>
+      <div style="font-size:22px;font-weight:800;color:var(--gray-400);">$11.25M</div>
+    </div>
+    <div style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:18px 16px;border-top:3px solid var(--green);">
+      <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">🏆 Goal</div>
+      <div style="font-size:22px;font-weight:800;color:var(--green);">$15M</div>
+    </div>
+  </div>
+
+</section>
+
 <!-- ═══════════════ ALIGNMENT ═══════════════ -->
 <section id="alignment" class="tab-panel" role="tabpanel">
 
@@ -1263,6 +1339,36 @@ const accountsData = [{"ae": "Aaron Marszal", "account": "GE Healthcare Equipmen
 <!-- ═══════════════ JS ═══════════════ -->
 <script>
   // ── Tab switching ────────────────────────────────────────────────
+  // ── Pipegen bar (current pipeline in dollars, 0 = placeholder) ──
+  const PIPEGEN_CURRENT = 0;
+  const PIPEGEN_GOAL    = 15000000;
+
+  function animatePipegen() {
+    const pct = Math.min(PIPEGEN_CURRENT / PIPEGEN_GOAL * 100, 100);
+    const bar  = document.getElementById('pipegen-bar');
+    const pctEl = document.getElementById('pipegen-pct');
+    const amtEl = document.getElementById('pipegen-amount');
+    if (!bar) return;
+    setTimeout(() => {
+      bar.style.width = pct + '%';
+      if (pct > 4) pctEl.style.opacity = '1';
+      pctEl.textContent = Math.round(pct) + '%';
+      // count-up animation for the dollar amount
+      const duration = 1400, steps = 60;
+      let step = 0;
+      const interval = setInterval(() => {
+        step++;
+        const val = Math.round(PIPEGEN_CURRENT * (step / steps));
+        amtEl.textContent = val >= 1000000
+          ? '$' + (val / 1000000).toFixed(1).replace(/\.0$/, '') + 'M'
+          : val >= 1000
+          ? '$' + (val / 1000).toFixed(0) + 'K'
+          : '$' + val.toLocaleString();
+        if (step >= steps) clearInterval(interval);
+      }, duration / steps);
+    }, 120);
+  }
+
   function showTab(tabId) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -1270,6 +1376,7 @@ const accountsData = [{"ae": "Aaron Marszal", "account": "GE Healthcare Equipmen
     if (btn) btn.classList.add('active');
     const panel = document.getElementById(tabId);
     if (panel) panel.classList.add('active');
+    if (tabId === 'pipegen') animatePipegen();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
