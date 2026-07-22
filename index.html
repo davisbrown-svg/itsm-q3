@@ -805,12 +805,10 @@
           <th data-col="sector">Sector <span class="sort-arrow">↕</span></th>
           <th data-col="employees" data-num="1">Employees <span class="sort-arrow">↕</span></th>
           <th data-col="segment" data-num="1">Segment <span class="sort-arrow">↕</span></th>
-          <th data-col="installedTech" data-num="1">Installed Tech <span class="sort-arrow">↕</span></th>
-          <th data-col="competingTech" data-num="1">Competing Tech <span class="sort-arrow">↕</span></th>
         </tr>
       </thead>
       <tbody id="targets-body">
-        <tr><td colspan="8" style="text-align:center;padding:24px;color:var(--gray-400);">Loading account data…</td></tr>
+        <tr><td colspan="6" style="text-align:center;padding:24px;color:var(--gray-400);">Loading account data…</td></tr>
       </tbody>
     </table>
   </div>
@@ -1392,12 +1390,9 @@ const accountsData = [{"ae": "Aaron Marszal", "account": "GE Healthcare Equipmen
     document.getElementById('targets-count').textContent = `${rows.length} account${rows.length !== 1 ? 's' : ''}`;
 
     if (rows.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--gray-400);">No accounts match your filters.</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--gray-400);">No accounts match your filters.</td></tr>`;
       return;
     }
-
-    const maxInstalled  = Math.max(...rows.map(r => parseInt(r.installedTech)  || 0));
-    const maxCompeting  = Math.max(...rows.map(r => parseInt(r.competingTech)  || 0));
 
     tbody.innerHTML = rows.map(r => `
       <tr>
@@ -1407,8 +1402,6 @@ const accountsData = [{"ae": "Aaron Marszal", "account": "GE Healthcare Equipmen
         <td>${r.sector || ''}</td>
         <td style="text-align:right;padding-right:20px;">${fmtEmployees(r.employees)}</td>
         <td style="text-align:center;">${r.segment != null ? r.segment : '—'}</td>
-        <td>${techBar(r.installedTech, maxInstalled)}</td>
-        <td>${techBar(r.competingTech, maxCompeting)}</td>
       </tr>
     `).join('');
   }
